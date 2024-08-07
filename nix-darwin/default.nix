@@ -22,6 +22,7 @@ in {
                 lib.escapeShellArg cfg.backupFileExtension
               }"}
               ${lib.optionalString cfg.verbose "export VERBOSE=1"}
+              ${lib.optionalString config.nix.useDaemon "export NIX_REMOTE=daemon"}
               exec ${usercfg.home.activationPackage}/activate
             ''
           }
